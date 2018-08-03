@@ -9,6 +9,13 @@ This command line utility transposes tables:
 |A3|B3|C3|    |C1|C2|C3|
 ```
 
+### Install
+You can install using Homebrew:
+
+``` bash
+brew install sanderploegsma/tap/transpose
+```
+
 ### Usage
 Currently, it reads from STDIN and writes to STDOUT:
 
@@ -22,4 +29,9 @@ EOF
 # |A1|A2|A3|
 # |B1|B2|B3|
 # |C1|C2|C3|
+```
+
+*Tip:* Use `pbpaste` and `pbcopy` on macOS:
+``` bash
+pbpaste | transpose | pbcopy
 ```
