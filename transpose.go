@@ -1,9 +1,9 @@
 package main
 
 import (
-	"io"
-	"fmt"
 	"bufio"
+	"fmt"
+	"io"
 	"strings"
 )
 
@@ -34,7 +34,7 @@ func ReadLines(r io.Reader) ([]string, error) {
 
 	for {
 		if !scanner.Scan() {
-			break;
+			break
 		}
 		output = append(output, scanner.Text())
 	}
@@ -72,15 +72,15 @@ func TrimAll(input []string) []string {
 // Transpose takes a slice of slices and transposes it.
 func Transpose(input [][]string) [][]string {
 	output := make([][]string, len(input[0]))
-    for x, _ := range output {
-        output[x] = make([]string, len(input))
-    }
-    for y, row := range input {
-        for x, cell := range row {
-            output[x][y] = cell
-        }
-    }
-    return output
+	for x, _ := range output {
+		output[x] = make([]string, len(input))
+	}
+	for y, row := range input {
+		for x, cell := range row {
+			output[x][y] = cell
+		}
+	}
+	return output
 }
 
 // FilterEmpty omits all inner slices that contain only empty strings

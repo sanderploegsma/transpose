@@ -2,20 +2,20 @@ package main
 
 import (
 	"bytes"
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestFilterEmpty(t *testing.T) {
-	input := [][]string {
-		{ "", ""},
+	input := [][]string{
+		{"", ""},
 		{"a", ""},
 		{"", "b"},
 		{"", ""},
 		{"a", "b"},
-		{"", ""},	
+		{"", ""},
 	}
-	expected := [][]string {
+	expected := [][]string{
 		{"a", ""},
 		{"", "b"},
 		{"a", "b"},
@@ -37,7 +37,7 @@ func TestTranspose(t *testing.T) {
 }
 
 func TestTrimAll(t *testing.T) {
-	input := []string { "   a", "b   ", "  c ", "d" }
+	input := []string{"   a", "b   ", "  c ", "d"}
 	expected := []string{"a", "b", "c", "d"}
 	assert.Equal(t, expected, TrimAll(input))
 }
@@ -68,7 +68,7 @@ func TestSplitLines(t *testing.T) {
 
 func TestReadLines(t *testing.T) {
 	input := "a\nb\nc"
-	expected := []string{"a","b","c"}
+	expected := []string{"a", "b", "c"}
 	output, err := ReadLines(bytes.NewBufferString(input))
 	assert.Nil(t, err)
 	assert.Equal(t, expected, output)
