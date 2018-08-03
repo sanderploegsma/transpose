@@ -7,16 +7,17 @@ import (
 	"strings"
 )
 
+// Transform reads data from a given input, transforms it using the given delimiter, and writes it to the given output
 func Transform(r io.Reader, w io.Writer, delim string) error {
 	input, err := ReadLines(r)
 	if err != nil {
 		return err
 	}
 
-	matrix := SplitLines(input, delimiter)
+	matrix := SplitLines(input, delim)
 	transposed := Transpose(matrix)
 	filtered := FilterEmpty(transposed)
-	result := JoinLines(filtered, delimiter)
+	result := JoinLines(filtered, delim)
 
 	var output []string
 	for _, line := range result {
@@ -60,7 +61,7 @@ func JoinLines(lines [][]string, delim string) []string {
 	return output
 }
 
-// trim takes a slice of strings and trims each element.
+// TrimAll takes a slice of strings and trims each element.
 func TrimAll(input []string) []string {
 	var output []string
 	for _, line := range input {
@@ -72,7 +73,7 @@ func TrimAll(input []string) []string {
 // Transpose takes a slice of slices and transposes it.
 func Transpose(input [][]string) [][]string {
 	output := make([][]string, len(input[0]))
-	for x, _ := range output {
+	for x := range output {
 		output[x] = make([]string, len(input))
 	}
 	for y, row := range input {

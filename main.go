@@ -1,15 +1,18 @@
 package main
 
 import (
+	"flag"
 	"os"
 )
 
 var (
-	delimiter = "|"
+	delimiter = flag.String("d", "|", "Delimiter to use")
 )
 
 func main() {
-	if err := Transform(os.Stdin, os.Stdout, delimiter); err != nil {
+	flag.Parse()
+
+	if err := Transform(os.Stdin, os.Stdout, *delimiter); err != nil {
 		panic(err)
 	}
 }
