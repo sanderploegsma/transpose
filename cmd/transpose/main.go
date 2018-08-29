@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"os"
+
+	"github.com/sanderploegsma/transpose/pkg/transpose"
 )
 
 var (
@@ -13,12 +15,12 @@ var (
 func main() {
 	flag.Parse()
 
-	options := Options{
+	options := transpose.Options{
 		Delimiter:  *delimiter,
 		TrimSpaces: *trimSpaces,
 	}
 
-	if err := Transpose(os.Stdin, os.Stdout, options); err != nil {
+	if err := transpose.Transpose(os.Stdin, os.Stdout, options); err != nil {
 		panic(err)
 	}
 }
