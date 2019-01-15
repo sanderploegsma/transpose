@@ -1,5 +1,4 @@
 # Transpose
-[![Build Status](https://travis-ci.org/sanderploegsma/transpose.svg?branch=master)](https://travis-ci.org/sanderploegsma/transpose)
 
 This command line utility transposes tables and matrices:
 
